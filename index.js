@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 // import { post } from "jquery";
 
 const app = express();
-const port = 4000;
+// const port = 4000;
 
 // In-memory data store
 let posts = [
@@ -85,6 +85,11 @@ app.delete("/posts/:id", (req, res) => {
     posts.splice(i,1);
     res.status(200).json({ message: `post was deleted` });
 })
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 4000;
+}
 
 app.listen(port, () => {
   console.log(`API is running at http://localhost:${port}`);
