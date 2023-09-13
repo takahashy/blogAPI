@@ -16,7 +16,7 @@
 
         <% if (locals.post) { %>
         <!-- the value of the name attribute is the key for the API request -->
-        <form id="editForm" method="post" action="/api/posts/<%=post.id%>">
+        <form id="editForm" method="post" action="/api/posts/<%=post._id%>">
             <input type="text" name="title" value="<%=post.title %>">
             <textarea name="content" rows="10"><%=post.content %></textarea>
             <input type="text" name="author" value="<%=post.author %>">

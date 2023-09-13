@@ -1,10 +1,13 @@
+// This renders the main page of the blog. This interacts with the server by
+// reqesting for API calls using axios.
+
 import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
 
 const app = express();
-// const port = 3000;
-// const API_URL = "http://localhost:4000";
+const port = 3005;
+const API_URL = "http://localhost:4000";
 
 app.use(express.static("public"));
 
@@ -61,7 +64,6 @@ app.post("/api/posts", async (req, res) => {
 // when pressing the submit in the edit form it sends to the API, `req.body`
 // which has the key-value pairs of title, content, and author
 app.post("/api/posts/:id", async (req, res) => {
-  console.log("called");
   try {
     const response = await axios.patch(
       `${API_URL}/posts/${req.params.id}`,
